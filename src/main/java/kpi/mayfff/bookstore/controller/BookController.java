@@ -17,8 +17,8 @@ import java.util.List;
 @Validated
 @RequiredArgsConstructor
 public class BookController {
-    BookService bookService;
-    BookMapper bookMapper;
+    private final BookService bookService;
+    private final BookMapper bookMapper;
 
     @GetMapping
     public ResponseEntity<List<BookResponseDto>> books() {

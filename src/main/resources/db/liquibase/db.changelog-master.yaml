@@ -1,0 +1,3 @@
+databaseChangeLog:
+  - include:
+      file: db/liquibase/changes/001-create-genre-and-book-tables.yaml

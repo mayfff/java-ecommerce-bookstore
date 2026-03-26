@@ -17,8 +17,8 @@ import java.util.List;
 @Service
 @AllArgsConstructor
 public class GenreServiceImpl implements GenreService {
-    GenreMapper genreMapper;
-    GenreRepository genreRepository;
+    private final GenreMapper genreMapper;
+    private final GenreRepository genreRepository;
 
     @Override
     @Transactional(readOnly = true)

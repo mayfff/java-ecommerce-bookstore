@@ -21,10 +21,10 @@ import java.util.List;
 @Service
 @AllArgsConstructor
 public class BookServiceImpl implements BookService {
-    BookMapper bookMapper;
-    GenreMapper genreMapper;
-    BookRepository bookRepository;
-    GenreService genreService;
+    private final BookMapper bookMapper;
+    private final GenreMapper genreMapper;
+    private final BookRepository bookRepository;
+    private final GenreService genreService;
 
     @Override
     @Transactional(readOnly = true)

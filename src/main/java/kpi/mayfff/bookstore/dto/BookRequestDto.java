@@ -1,11 +1,13 @@
 package kpi.mayfff.bookstore.dto;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
-import lombok.Builder;
-import lombok.Value;
+import lombok.*;
 
-@Value
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Builder(toBuilder = true)
 public class BookRequestDto {
     @NotBlank(message = "Title is required")
@@ -20,9 +22,9 @@ public class BookRequestDto {
     @Size(min = 5, max = 255, message = "Description must be between 5 and 255 characters")
     String description;
 
-    @NotBlank(message = "Genre is required")
+    @NotNull(message = "Genre is required")
     Long genreId;
 
-    @NotBlank(message = "Price is required")
+    @NotNull(message = "Price is required")
     Double price;
 }

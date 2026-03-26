@@ -16,8 +16,8 @@ import java.util.List;
 @RequiredArgsConstructor
 @RequestMapping("/api/v1/genres")
 public class GenreController {
-    GenreService genreService;
-    GenreMapper genreMapper;
+    private final GenreService genreService;
+    private final GenreMapper genreMapper;
 
     @GetMapping
     public ResponseEntity<List<GenreDto>> genres() {

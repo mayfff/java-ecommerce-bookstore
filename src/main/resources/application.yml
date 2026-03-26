@@ -1,9 +1,13 @@
 spring:
   application:
     name: bookstore
+  lifecycle:
+    timeout-per-shutdown-phase: 30s
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: validate
+  liquibase:
+    change-log: classpath:db/changelog/db.changelog-master.yaml
   config:
     import: optional:file:.env[.properties]
 
@@ -19,3 +23,6 @@ spring:
 
     swagger-ui:
       path: /swagger-ui.html
+
+server:
+  shutdown: graceful
