@@ -2,12 +2,16 @@ package kpi.mayfff.bookstore.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 @Entity
 @Table(name = "book")
-@Data
+@Getter
+@Setter
+@ToString(exclude = "genre")
 @AllArgsConstructor
 @NoArgsConstructor
 public class BookEntity {
