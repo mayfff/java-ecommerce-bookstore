@@ -1,13 +1,10 @@
 package kpi.mayfff.bookstore;
 
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
-class BookstoreApplicationTests {
+class BookstoreApplicationTests extends AbstractIntegrationTest {
 
 	@Test
 	void contextLoads() {
 	}
-
 }

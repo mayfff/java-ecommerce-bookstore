@@ -4,7 +4,6 @@ import kpi.mayfff.bookstore.domain.Book;
 import kpi.mayfff.bookstore.dto.BookResponseDto;
 import kpi.mayfff.bookstore.entity.BookEntity;
 import org.mapstruct.Mapper;
-import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 

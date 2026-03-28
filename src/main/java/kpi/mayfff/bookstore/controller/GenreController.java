@@ -30,8 +30,8 @@ public class GenreController {
     }
 
     @PostMapping
-    public ResponseEntity<GenreDto> addGenre(@RequestBody @Valid GenreDto GenreDto) {
-        return ResponseEntity.ok(genreMapper.toGenreDto(genreService.createGenre(GenreDto)));
+    public ResponseEntity<GenreDto> addGenre(@RequestBody @Valid GenreDto genreDto) {
+        return ResponseEntity.ok(genreMapper.toGenreDto(genreService.createGenre(genreDto)));
     }
 
     @PutMapping("/{id}")

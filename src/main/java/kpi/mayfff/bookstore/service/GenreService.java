@@ -1,6 +1,5 @@
 package kpi.mayfff.bookstore.service;
 
-import jakarta.validation.Valid;
 import kpi.mayfff.bookstore.domain.Genre;
 import kpi.mayfff.bookstore.dto.GenreDto;
 

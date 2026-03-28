@@ -7,7 +7,7 @@ spring:
     hibernate:
       ddl-auto: validate
   liquibase:
-    change-log: classpath:db/changelog/db.changelog-master.yaml
+    change-log: classpath:db/liquibase/db.changelog-master.yaml
   config:
     import: optional:file:.env[.properties]
 
