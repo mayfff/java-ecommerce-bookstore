@@ -44,7 +44,7 @@ jobs:
             ${{ steps.prep.outputs.image }}:${{ steps.prep.outputs.sha_tag }}
 
       - name: Run Trivy vulnerability scan
-        uses: aquasecurity/trivy-action@0.28.0
+        uses: aquasecurity/trivy-action@v0.35.0
         with:
           image-ref: ${{ steps.prep.outputs.image }}:${{ steps.prep.outputs.sha_tag }}
           format: table
