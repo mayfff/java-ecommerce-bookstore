@@ -19,7 +19,7 @@ jobs:
         id: prep
         run: |
           OWNER_LC=$(echo "${GITHUB_REPOSITORY_OWNER}" | tr '[:upper:]' '[:lower:]')
-          IMAGE="ghcr.io/${OWNER_LC}/ecommerce-bookstore-app"
+          IMAGE="ghcr.io/${OWNER_LC}/ecommerce-app"
           SHA_TAG="sha-${GITHUB_SHA::7}"
           echo "image=${IMAGE}" >> "$GITHUB_OUTPUT"
           echo "sha_tag=${SHA_TAG}" >> "$GITHUB_OUTPUT"
