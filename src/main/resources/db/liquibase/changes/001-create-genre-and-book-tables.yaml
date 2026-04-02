@@ -1,0 +1,112 @@
+databaseChangeLog:
+  - changeSet:
+      id: 001-create-genre-table
+      author: Danylo Zakrevskyi
+      preConditions:
+        onFail: MARK_RAN
+        not:
+          tableExists:
+            tableName: genre
+      changes:
+        - createTable:
+            tableName: genre
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: pk_genre
+                    nullable: false
+              - column:
+                  name: title
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: description
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+
+  - changeSet:
+      id: 002-add-genre-title-unique-constraint
+      author: Danylo Zakrevskyi
+      preConditions:
+        onFail: MARK_RAN
+        and:
+          - tableExists:
+              tableName: genre
+          - not:
+              uniqueConstraintExists:
+                tableName: genre
+                constraintName: uk_genre_title
+      changes:
+        - addUniqueConstraint:
+            tableName: genre
+            columnNames: title
+            constraintName: uk_genre_title
+
+  - changeSet:
+      id: 003-create-book-table
+      author: Danylo Zakrevskyi
+      preConditions:
+        onFail: MARK_RAN
+        not:
+          tableExists:
+            tableName: book
+      changes:
+        - createTable:
+            tableName: book
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: pk_book
+                    nullable: false
+              - column:
+                  name: title
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: author
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: description
+                  type: VARCHAR(255)
+              - column:
+                  name: genre
+                  type: BIGINT
+              - column:
+                  name: price
+                  type: DOUBLE PRECISION
+                  constraints:
+                    nullable: false
+
+  - changeSet:
+      id: 004-add-book-genre-foreign-key
+      author: Danylo Zakrevskyi
+      preConditions:
+        onFail: MARK_RAN
+        and:
+          - tableExists:
+              tableName: book
+          - tableExists:
+              tableName: genre
+          - not:
+              foreignKeyConstraintExists:
+                foreignKeyName: fk_book_genre
+      changes:
+        - addForeignKeyConstraint:
+            baseTableName: book
+            baseColumnNames: genre
+            constraintName: fk_book_genre
+            referencedTableName: genre
+            referencedColumnNames: id
